@@ -14,7 +14,7 @@ class _DetailPageState extends State<DetailPage> {
 
   @override
   void initState() {
-    // TODO: implement initState
+    
     super.initState();
 
     String fnlurl = widget.fnlData;
