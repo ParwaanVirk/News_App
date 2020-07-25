@@ -38,7 +38,7 @@ class _newspageState extends State<newspage> {
                       child: Text('ABC News'),
                     ),
                     Tab(
-                      child: Text('BuzzFeed'),
+                      child: Text('Fortune News'),
                     ),
                     Tab(
                       child: Text('CNN'),
@@ -202,7 +202,7 @@ class _newspageState extends State<newspage> {
             ),
             Container(
               child: FutureBuilder(
-                future: brainiac.getdata('buzzfeed'),
+                future: brainiac.getdata('fortune'),
                 builder: (BuildContext context, AsyncSnapshot snapshot) {
                   if (snapshot.data == null) {
                     return Container(
