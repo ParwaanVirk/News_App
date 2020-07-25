@@ -8,16 +8,20 @@ class Brainiac {
   int totalresults;
 
   Future<List<DataforCard>> getdata(String source) async {
+
+    // getting data from api
     var gottendata = await http.get(
         'http://newsapi.org/v2/top-headlines?sources=$source&apiKey=065a9f57a03f4ce897dfa1356aa2ba99');
 
+    // converting into json format
     var gottendatatojson = json.decode(gottendata.body);
 
+    // no of toplested articles form a particaular source
     totalresults = gottendatatojson['totalResults'];
 
     List<DataforCard> newsitems = [];
-    // remember name of list is newsitems
-
+    
+    // filling each articale in a list called newsitems
     for (int i = 0; i < totalresults; i++) {
       DataforCard user = DataforCard(
           gottendatatojson['articles'][i]['author'],
@@ -30,10 +34,8 @@ class Brainiac {
 
       newsitems.add(user);
     }
-    // for (int i = 0; i < totalresults; i++) {
-    //   print(newsitems[i].publishedAt);
-    // }
-
+    
+    // return the list
     return newsitems;
   }
 }
